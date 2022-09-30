@@ -1,0 +1,32 @@
+server:
+  port: 6003
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 #naocs地址
+        namespace: 53035b68-81db-4bd7-9d10-8c7d0124fec3  #命名空间
+      #使用nacos配置中心
+#      config:
+#        server-addr: localhost:8848 #nacos配置中心地址
+#        file-extension: yaml #指定yaml格式的配置
+#        group: DEFAULT_GROUP
+#        namespace: 53035b68-81db-4bd7-9d10-8c7d0124fec3 # devID 命名空间
+        #${prefix}-${spring.profiles.active}.${file-extension}
+        #nacos-config-client-dev.yaml
+## gateway data-d与group配置，也就是配置中心自定义获取
+nacos:
+  gateway:
+    route:
+      config:
+        data-id: gateway-router
+        group: DEFAULT_GROUP
+# 2.0开始，actuator默认不开放，所以要设置为开放
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

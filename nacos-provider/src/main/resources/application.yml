@@ -1,0 +1,11 @@
+server:
+  port: 6002
+
+spring:
+  application:
+    name: provider-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 #naocs地址
+        namespace: 53035b68-81db-4bd7-9d10-8c7d0124fec3  #命名空间
